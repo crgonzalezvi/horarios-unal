@@ -126,7 +126,6 @@ function parsearSIAPerfecto(lineas) {
                 let duracionAnterior = claseAnterior.minFin - claseAnterior.minInicio;
                 let duracionNueva = minFin - minInicio;
 
-                // Si la nueva entrada tiene más peso o duración, reemplazamos; si no, conservamos la principal.
                 if (duracionNueva > duracionAnterior) {
                     horario[diaActual][indexExistente] = {
                         inicio: inicio,
@@ -146,6 +145,7 @@ function parsearSIAPerfecto(lineas) {
 
     return horario;
 }
+
 function horaAMinutos(horaStr) {
     const [h, m] = horaStr.split(':').map(Number);
     return h * 60 + m;
@@ -289,30 +289,30 @@ function dibujarGrillaDinamica(horario) {
             ctx.stroke();
 
             ctx.fillStyle = "#8C5E35";
-            ctx.font = "bold 10px 'Segoe UI', sans-serif";
-            ctx.fillText(`${clase.inicio}-${clase.fin}`, x + 6, yClase + 16);
+            ctx.font = "bold 13px 'Segoe UI', sans-serif";
+            ctx.fillText(`${clase.inicio} - ${clase.fin}`, x + 8, yClase + 20);
 
             ctx.fillStyle = "#333333";
-            ctx.font = "9px 'Segoe UI', sans-serif";
+            ctx.font = "12px 'Segoe UI', sans-serif";
 
             let words = clase.detalle.split(' ');
             let line = "";
-            let textY = yClase + 28;
+            let textY = yClase + 38; // Posición inicial debajo de la hora
 
             for (let n = 0; n < words.length; n++) {
                 let testLine = line + words[n] + " ";
-                if (ctx.measureText(testLine).width > actualColWidth - 12 && n > 0) {
-                    if (textY + 10 < yClase + alturaClase - 4) {
-                        ctx.fillText(line, x + 6, textY);
+                if (ctx.measureText(testLine).width > actualColWidth - 16 && n > 0) {
+                    if (textY + 14 < yClase + alturaClase - 6) {
+                        ctx.fillText(line, x + 8, textY);
                     }
                     line = words[n] + " ";
-                    textY += 10;
+                    textY += 15; 
                 } else {
                     line = testLine;
                 }
             }
-            if (textY < yClase + alturaClase - 4) {
-                ctx.fillText(line, x + 6, textY);
+            if (textY < yClase + alturaClase - 6) {
+                ctx.fillText(line, x + 8, textY);
             }
         });
     });
