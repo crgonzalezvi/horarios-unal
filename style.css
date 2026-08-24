@@ -1,0 +1,190 @@
+:root {
+    --bg-main: #121214;
+    --bg-card: #1E1E24;
+    --border-color: #2D2D38;
+    --text-primary: #F4F4F6;
+    --text-secondary: #A1A1AA;
+    --accent: #D4B59D;
+    --accent-hover: #E2C7B2;
+    --button-bg: #D4B59D;
+    --button-text: #121214;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 680px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.app-header h1 {
+    color: var(--text-primary);
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.app-header p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.upload-box {
+    border: 2px dashed var(--border-color);
+    padding: 25px 20px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    background: #16161A;
+    transition: border-color 0.2s;
+}
+
+.upload-box:hover {
+    border-color: var(--accent);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file-label {
+    display: inline-block;
+    background: #2D2D38;
+    color: var(--text-primary);
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border: 1px solid #3F3F4E;
+}
+
+.file-label:hover {
+    background: #3F3F4E;
+    border-color: var(--accent);
+}
+
+#fileName {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    word-break: break-all;
+}
+
+button {
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 14px 25px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 700;
+    width: 100%;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(212, 181, 157, 0.2);
+}
+
+button:disabled {
+    background: #2D2D38;
+    color: #666670;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+button:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.hidden {
+    display: none;
+}
+
+#loading {
+    margin: 20px 0;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 14px;
+}
+
+.preview-container {
+    margin-top: 25px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
+}
+
+.btn-download {
+    display: inline-block;
+    margin-top: 20px;
+    background: #22c55e;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-download:hover {
+    background: #16a34a;
+    transform: translateY(-1px);
+}
+
+.app-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.app-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.app-footer a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador de Horario SIA - UNAL</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="container">
+            <header class="app-header">
+                <h1>Organizador de Horario SIA</h1>
+                <p>Sube el PDF oficial de tu horario de la Universidad Nacional y transfórmalo al instante en una grilla limpia, ordenada y estética.</p>
+            </header>
+            
+            <div class="upload-box">
+                <input type="file" id="pdfFile" accept=".pdf">
+                <label for="pdfFile" class="file-label">📂 Seleccionar PDF del SIA</label>
+                <span id="fileName">Ningún archivo seleccionado</span>
+            </div>
+
+            <button id="btnGenerar" onclick="procesarPDF()" disabled>Generar Horario Ordenado</button>
+            
+            <div id="loading" class="hidden">Procesando tu horario... ⏳</div>
+
+            <div class="preview-container">
+                <canvas id="horarioCanvas" width="1600" height="1200" class="hidden"></canvas>
+            </div>
+
+            <div id="downloadArea"></div>
+        </div>
+
+        <footer class="app-footer">
+            Hecho con ❤️ por <a href="https://crgonzalezvi.github.io/portafolio/" target="_blank" rel="noopener noreferrer">Cristian</a>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
